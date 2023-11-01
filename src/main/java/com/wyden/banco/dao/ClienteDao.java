@@ -9,13 +9,14 @@ import com.wyden.banco.entity.Cliente;
 import com.wyden.banco.util.HibernateUtil;
 
 public class ClienteDao {
+	
 	public void create(Cliente cliente) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
 			// save the cliente object
-			session.save(cliente);
+			session.persist(cliente);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {

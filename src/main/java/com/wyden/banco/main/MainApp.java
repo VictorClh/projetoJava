@@ -2,10 +2,19 @@ package com.wyden.banco.main;
 
 import java.util.Scanner;
 
+import org.hibernate.Session;
+
+import com.wyden.banco.dao.ClienteDao;
+import com.wyden.banco.entity.Cliente;
+import com.wyden.banco.util.HibernateUtil;
+
 public class MainApp {
 
 	public static void main(String[] args) {
 
+		@SuppressWarnings("unused")
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		
 		int opcao;
 
 		do {
@@ -15,6 +24,9 @@ public class MainApp {
 
 			case 1:
 				System.out.println("Colocar aqui rotina para criar um cliente.");
+				Cliente objCliente = new Cliente("123.456", "George Orwell", "19-9809-0909");
+				ClienteDao objClienteDao = new ClienteDao();
+				objClienteDao.create(objCliente);
 				break;
 			case 2:
 				System.out.println("Colocar aqui rotina para consultar um cliente.");
