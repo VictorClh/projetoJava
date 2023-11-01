@@ -24,9 +24,6 @@ public class MainApp {
 
 			case 1:
 				System.out.println("Colocar aqui rotina para criar um cliente.");
-				Cliente objCliente = new Cliente("123.456", "George Orwell", "19-9809-0909");
-				ClienteDao objClienteDao = new ClienteDao();
-				objClienteDao.create(objCliente);
 				break;
 			case 2:
 				System.out.println("Colocar aqui rotina para consultar um cliente.");
