@@ -1,9 +1,18 @@
 package com.wyden.banco.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="clientes")
 public class Cliente {
 
+	@Id
 	private String cpf;
 	private String nome;
+	@Column(name="phone")
 	private String fone;
 
 	public Cliente() {

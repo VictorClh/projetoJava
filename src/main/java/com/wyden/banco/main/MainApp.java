@@ -6,6 +6,7 @@ import org.hibernate.Session;
 
 import com.wyden.banco.dao.ClienteDao;
 import com.wyden.banco.entity.Cliente;
+import com.wyden.banco.services.ClienteServices;
 import com.wyden.banco.util.HibernateUtil;
 
 public class MainApp {
@@ -23,7 +24,7 @@ public class MainApp {
 			switch (opcao) {
 
 			case 1:
-				System.out.println("Colocar aqui rotina para criar um cliente.");
+				ClienteServices.criar();
 				break;
 			case 2:
 				System.out.println("Colocar aqui rotina para consultar um cliente.");
