@@ -33,11 +33,8 @@ public class IntegranteUtilities {
 		
 		
 	}
-	
-	public static List<Integrante> consultar(){
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			return session.createQuery("from integrante", Integrante.class).list();
-		}
+	public static void consultar() {
+		
 	}
 
 }
