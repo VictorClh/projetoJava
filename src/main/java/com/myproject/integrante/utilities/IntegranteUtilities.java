@@ -3,11 +3,8 @@ package com.myproject.integrante.utilities;
 import java.util.List;
 import java.util.Scanner;
 
-import org.hibernate.Session;
-
 import com.myproject.integrante.dao.IntegranteDao;
 import com.myproject.integrante.entity.Integrante;
-import com.myproject.integrante.util.HibernateUtil;
 
 public class IntegranteUtilities {
 	
@@ -34,7 +31,18 @@ public class IntegranteUtilities {
 		
 	}
 	public static void consultar() {
+		IntegranteDao integranteDao = new IntegranteDao();
+        List<Integrante> integrantes = integranteDao.getAll();
+
+        System.out.println("Lista de Integrantes:");
+        for (Integrante integrante : integrantes) {
+            System.out.println("CPF: " + integrante.getCpf());
+            System.out.println("Nome: " + integrante.getNome());
+            System.out.println("Projeto: " + integrante.getProjeto());
+            System.out.println("Data de Nascimento: " + integrante.getDataNasc());
+            System.out.println("Fone: " + integrante.getFone());
+            System.out.println("------------------------------------");
 		
 	}
-
+	}
 }

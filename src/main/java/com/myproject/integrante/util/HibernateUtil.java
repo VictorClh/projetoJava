@@ -24,7 +24,7 @@ public class HibernateUtil {
 				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/cadastro_integrante?createDatabaseIfNotExist=true");
 				settings.put(Environment.USER, "root");
 				settings.put(Environment.PASS, "123456789");
-				settings.put(Environment.SHOW_SQL, "true");
+				settings.put(Environment.SHOW_SQL, true);
 
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 

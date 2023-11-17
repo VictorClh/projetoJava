@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.myproject.integrante.entity.Integrante;
 import com.myproject.integrante.util.HibernateUtil;
@@ -29,7 +30,9 @@ public class IntegranteDao {
 
 	public List<Integrante> getAll() {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			return session.createQuery("from integrante", Integrante.class).list();
+			String hql = "FROM Integrante";
+            Query<Integrante> query = session.createQuery(hql, Integrante.class);
+			return query.list();
 		}
 	}
 	
