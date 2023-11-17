@@ -1,22 +1,22 @@
-package com.wyden.banco.dao;
+package com.myproject.integrante.dao;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.wyden.banco.entity.Cliente;
-import com.wyden.banco.util.HibernateUtil;
+import com.myproject.integrante.entity.Integrante;
+import com.myproject.integrante.util.HibernateUtil;
 
-public class ClienteDao {
+public class IntegranteDao {
 	
-	public void create(Cliente cliente) {
+	public void create(Integrante integrante) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			transaction = session.beginTransaction();
-			// save the cliente object
-			session.persist(cliente);
+			// save the integrante object
+			session.persist(integrante);
 			// commit transaction
 			transaction.commit();
 		} catch (Exception e) {
@@ -27,9 +27,11 @@ public class ClienteDao {
 		}
 	}
 
-	public List<Cliente> getAll() {
+	public List<Integrante> getAll() {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			return session.createQuery("from clientes", Cliente.class).list();
+			return session.createQuery("from integrante", Integrante.class).list();
 		}
 	}
+	
+    
 }

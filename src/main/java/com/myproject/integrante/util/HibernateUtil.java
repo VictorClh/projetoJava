@@ -1,12 +1,14 @@
-package com.wyden.banco.util;
+package com.myproject.integrante.util;
 
 import java.util.Properties;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
-import com.wyden.banco.entity.Cliente;
+
+import com.myproject.integrante.entity.Integrante;
 
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
@@ -19,9 +21,9 @@ public class HibernateUtil {
 				// Hibernate settings equivalent to hibernate.cfg.xml's properties
 				Properties settings = new Properties();
 				settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-				settings.put(Environment.URL, "jdbc:mysql://127.0.0.1:3308/sistema_bancario_db?createDatabaseIfNotExist=true");
+				settings.put(Environment.URL, "jdbc:mysql://localhost:3306/cadastro_integrante?createDatabaseIfNotExist=true");
 				settings.put(Environment.USER, "root");
-				settings.put(Environment.PASS, "root");
+				settings.put(Environment.PASS, "123456789");
 				settings.put(Environment.SHOW_SQL, "true");
 
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
@@ -30,7 +32,7 @@ public class HibernateUtil {
 
 				configuration.setProperties(settings);
 
-				configuration.addAnnotatedClass(Cliente.class);
+				configuration.addAnnotatedClass(Integrante.class);
 
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();

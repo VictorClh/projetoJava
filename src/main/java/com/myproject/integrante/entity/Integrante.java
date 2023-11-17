@@ -1,4 +1,4 @@
-package com.wyden.banco.entity;
+package com.myproject.integrante.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,23 +6,43 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="clientes")
-public class Cliente {
+@Table(name="Integrante")
+public class Integrante {
 
 	@Id
 	private String cpf;
 	private String nome;
+	private String projeto;
+	private String dataNasc;
 	@Column(name="phone")
 	private String fone;
 
-	public Cliente() {
+	public Integrante() {
 
 	}
 
-	public Cliente(String cpf, String nome, String fone) {
+	public Integrante(String cpf, String nome, String projeto, String dataNasc, String fone) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.fone = fone;
+		this.projeto = projeto;
+		this.dataNasc = dataNasc;
+	}
+
+	public String getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(String projeto) {
+		this.projeto = projeto;
+	}
+
+	public String getDataNasc() {
+		return dataNasc;
+	}
+
+	public void setDataNasc(String dataNasc) {
+		this.dataNasc = dataNasc;
 	}
 
 	public String getCpf() {
