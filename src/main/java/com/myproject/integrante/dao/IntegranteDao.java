@@ -36,5 +36,35 @@ public class IntegranteDao {
 		}
 	}
 	
+/* METODO PARA ALTERAR DADOS DE UM INTEGRANTE
+ 
+  	@SuppressWarnings("deprecation")
+	public void update(Integrante integrante) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.update(integrante);
+            transaction.commit();
+        }
+    }
+	*/
+	 public Integrante getByCpf(String cpf) {
+	        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	            String hql = "FROM Integrante WHERE cpf = :cpf";
+	            Query<Integrante> query = session.createQuery(hql, Integrante.class);
+	            query.setParameter("cpf", cpf);
+	            return query.uniqueResult();
+	        }
+	    }
+	
+	//METODO PARA EXCLUIR UM INTEGRANTE
+	
+	 @SuppressWarnings("deprecation")
+	public void delete(Integrante integrante) {
+	        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	            Transaction transaction = session.beginTransaction();
+	            session.delete(integrante);
+	            transaction.commit();
+	        }
+	    }
     
 }

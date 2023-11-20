@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import org.hibernate.Session;
 
+import com.myproject.integrante.entity.Integrante;
 import com.myproject.integrante.util.HibernateUtil;
 import com.myproject.integrante.utilities.IntegranteUtilities;
 
@@ -29,9 +30,10 @@ public class MainApp {
 				break;
 			case 3:
 				System.out.println("Alterar um integrante.");
+				//IntegranteUtilities.buscarPorCpf(null);
 				break;
 			case 4:
-				System.out.println("Excluir um integrante.");
+				IntegranteUtilities.excluir();
 				break;
 			case 5:
 				System.out.println("\nFim de programa\n");
